@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رنا كرافت | Rana Craft - ستيكرات وتغليف وتوزيعات</title>
+    
+    <!-- Google Fonts: Tajawal for Arabic & Plus Jakarta Sans for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Fonts & Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        arabic: ['Tajawal', 'sans-serif'],
+                        english: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#FFF5F8',        /* خلفية زهرية ناعمة جداً */
+                        sand: '#FCE7EF',         /* وردي باستيل للبطاقات الثانوية */
+                        terracotta: '#E15B88',   /* زهري أساسي نابض وأنيق */
+                        terracottaDark: '#C84370', /* زهري غامق عند التمرير */
+                        sage: '#D980A6',         /* وردي متوسط ناعم للتفاصيل */
+                        charcoal: '#3D1E2E',     /* عنابي/برقوقي داكن للنصوص لوضوح ممتاز */
+                        muted: '#825B6E'         /* وردي رمادي للنصوص الفرعية */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#F6DCE6] text-charcoal font-arabic antialiased selection:bg-terracotta selection:text-white min-h-screen flex justify-center">
+
+    <!-- Strict Mobile-Width Container (max-width: 480px centered on all viewports) -->
+    <div id="app-container" class="w-full max-w-[480px] bg-cream min-h-screen shadow-2xl shadow-pink-300/40 relative overflow-x-hidden flex flex-col border-x border-pink-200/80">
+        
+        <!-- Sticky Top Header -->
+        <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-pink-200/70 px-4 py-3 flex items-center justify-between gap-2">
+            <!-- Brand Identity (Clicking returns to Home) -->
+            <button onclick="switchPage('home')" class="flex items-center gap-2 text-start cursor-pointer group">
+                <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-terracotta to-[#F48FB1] flex items-center justify-center text-white shadow-md shadow-terracotta/25 group-hover:scale-105 transition-transform shrink-0">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </div>
+                <div>
+                    <h1 id="brand-name" class="font-extrabold text-sm leading-tight text-charcoal">رنا كرافت</h1>
+                    <p id="brand-sub" class="text-[10px] text-muted font-medium">للطباعة والتغليف الإبداعي</p>
+                </div>
+            </button>
+
+            <!-- Page Switcher Pills (Home / About Me) + Language Toggle -->
+            <div class="flex items-center gap-1.5">
+                <nav class="flex items-center bg-sand/90 p-1 rounded-full border border-pink-200/80" aria-label="Page Navigation">
+                    <button id="nav-home-btn" onclick="switchPage('home')" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-terracotta text-white shadow-sm transition-all cursor-pointer">
+                        الرئيسية
+                    </button>
+                    <button id="nav-about-btn" onclick="switchPage('about')" class="px-2.5 py-1 rounded-full text-[11px] font-bold text-muted hover:text-charcoal transition-all cursor-pointer">
+                        من أنا
+                    </button>
+                </nav>
+
+                <!-- Language Toggle Button -->
+                <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-1 bg-white hover:bg-sand border border-pink-200/90 text-charcoal px-2.5 py-1.5 rounded-full text-[11px] font-bold shadow-sm transition-all active:scale-95 cursor-pointer shrink-0">
+                    <i data-lucide="globe" class="w-3 h-3 text-terracotta"></i>
+                    <span id="lang-btn-text">EN</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- PAGE 1: Main Home Content Area -->
+        <main id="page-home" class="flex-1 pb-24">
+            
+            <!-- Hero Section -->
+            <section class="px-5 pt-6 pb-6">
+                <!-- Aesthetic Girly Hero Image Composition -->
+                <div class="relative mb-6">
+                    <!-- Decorative Soft Pink Glow & Floating Sparkle Accents -->
+                    <div class="absolute -inset-1.5 bg-gradient-to-tr from-terracotta/30 via-pink-300/40 to-rose-200/50 rounded-[32px] blur-md opacity-80"></div>
+                    
+                    <!-- Floating Top-End Aesthetic Sticker Pill -->
+                    <div class="absolute -top-3 end-3 z-20 bg-white border-2 border-pink-200 px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5 animate-bounce" style="animation-duration: 3s;">
+                        <span class="text-sm">🎀</span>
+                        <span id="hero-float-sticker" class="text-[11px] font-extrabold text-terracotta">تصاميم بناتية ناعمة</span>
+                    </div>
+
+                    <!-- Main Hero Image Card -->
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-pink-300/40 aspect-[4/3] bg-sand border-2 border-white group">
+                        <img 
+                            src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=950&q=85" 
+                            onerror="this.src='https://placehold.co/800x600/FCE7EF/E15B88?text=Pink+Creative+Studio'"
+                            alt="Aesthetic Pink Packaging, Ribbons and Custom Stickers" 
+                            class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        >
+                        <!-- Soft Pink Rosy Tint Overlay for Extra Girly Aesthetic -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/50 via-terracotta/10 to-pink-200/15 pointer-events-none"></div>
+
+                        <!-- Floating Bottom Glass Badge -->
+                        <div class="absolute bottom-3 start-3 end-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl flex items-center justify-between shadow-md border border-pink-100">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-terracotta animate-ping"></span>
+                                <span id="hero-badge" class="text-xs font-bold text-charcoal">تصميم وطباعة حسب الطلب 100%</span>
+                            </div>
+                            <span class="text-xs font-extrabold text-terracotta bg-sand px-2 py-0.5 rounded-full">★ 4.9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Text & CTA -->
+                <div class="space-y-3.5">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta/15 text-terracotta text-xs font-bold">
+                        <i data-lucide="heart" class="w-3.5 h-3.5 fill-terracotta"></i>
+                        <span id="hero-tag">نحول أفكارك إلى تفاصيل ملموسة</span>
+                    </div>
+
+                    <h2 id="hero-title" class="text-2xl sm:text-[26px] font-extrabold text-charcoal leading-snug">
+                        لمسات إبداعية تبرز هوية مشروعك وتُخلّد أجمل مناسباتك ✨
+                    </h2>
+
+                    <p id="hero-desc" class="text-sm text-muted leading-relaxed">
+                        أهلاً بكِ في مساحتي الإبداعية! أصمم وأطبع الستيكرات المخصصة، الأكياس الورقية، تغليف المنتجات، وتوزيعات المناسبات السعيدة بأعلى جودة وأدق التفاصيل لتترك انطباعاً لا يُنسى.
+                    </p>
+
+                    <div class="pt-2 flex items-center gap-3">
+                        <a href="#order-section" id="hero-cta-primary" class="flex-1 bg-terracotta hover:bg-terracottaDark text-white font-bold text-sm py-3.5 px-5 rounded-2xl shadow-lg shadow-terracotta/30 flex items-center justify-center gap-2 transition-all active:scale-95">
+                            <span id="cta-primary-text">اطلبي تصميمك الآن</span>
+                            <i data-lucide="arrow-down-left" id="cta-arrow" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#portfolio-section" id="hero-cta-secondary" class="bg-white hover:bg-sand text-charcoal border border-pink-200 font-bold text-sm py-3.5 px-4 rounded-2xl shadow-sm transition-all active:scale-95">
+                            <span id="cta-secondary-text">أعمالي</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Continuous Auto-Sliding Marquee Ticker Bar -->
+            <section class="pb-7 overflow-hidden" aria-label="Studio Signature Banner">
+                <div class="bg-gradient-to-r from-terracotta via-[#EC6F99] to-terracotta text-white py-3 shadow-md shadow-pink-200/60 border-y border-pink-300/50 relative overflow-hidden group">
+                    <div id="marquee-track" class="flex w-max items-center marquee-rtl group-hover:[animation-play-state:paused]">
+                        <!-- Track Copy 1 -->
+                        <div class="flex items-center gap-6 px-3 shrink-0">
+                            <span class="marquee-phrase text-xs font-extrabold tracking-wide">نطبع شغفكِ بأدق التفاصيل ✨ ستيكرات، تغليف وتوزيعات تصنع الفرق 🌸</span>
+                            <span class="text-pink-200 text-xs">✦</span>
+                            <span class="marquee-phrase-alt text-xs font-bold tracking-wide">لمسة أنثوية راقية لكل مشروع ومناسبة سعيدة 🎀</span>
+                            <span class="text-pink-200 text-xs">✦</span>
+                        </div>
+                        <!-- Track Copy 2 (Seamless Loop Duplicate) -->
+                        <div class="flex items-center gap-6 px-3 shrink-0" aria-hidden="true">
+                            <span class="marquee-phrase text-xs font-extrabold tracking-wide">نطبع شغفكِ بأدق التفاصيل ✨ ستيكرات، تغليف وتوزيعات تصنع الفرق 🌸</span>
+                            <span class="text-pink-200 text-xs">✦</span>
+                            <span class="marquee-phrase-alt text-xs font-bold tracking-wide">لمسة أنثوية راقية لكل مشروع ومناسبة سعيدة 🎀</span>
+                            <span class="text-pink-200 text-xs">✦</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Stats Strip -->
+            <section class="px-5 pb-8">
+                <div class="bg-white rounded-3xl p-4 border border-pink-200/70 shadow-sm grid grid-cols-3 divide-x divide-x-reverse divide-pink-100 text-center" id="stats-grid">
+                    <div class="px-2">
+                        <p class="text-lg font-extrabold text-terracotta">+500</p>
+                        <p id="stat-1" class="text-[11px] font-medium text-muted mt-0.5">طلب مُنفّذ</p>
+                    </div>
+                    <div class="px-2">
+                        <p class="text-lg font-extrabold text-sage">100%</p>
+                        <p id="stat-2" class="text-[11px] font-medium text-muted mt-0.5">دقة ألوان وجودة</p>
+                    </div>
+                    <div class="px-2">
+                        <p class="text-lg font-extrabold text-charcoal">+120</p>
+                        <p id="stat-3" class="text-[11px] font-medium text-muted mt-0.5">مشروع ومناسبة</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section (2-Column Mobile Grid) -->
+            <section class="px-5 pb-9">
+                <div class="flex items-end justify-between mb-4">
+                    <div>
+                        <span id="services-sub" class="text-xs font-bold text-terracotta uppercase tracking-wider">ماذا أقدم لكِ؟</span>
+                        <h3 id="services-title" class="text-xl font-extrabold text-charcoal mt-0.5">خدمات التصميم والطباعة</h3>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3.5">
+                    <!-- Service 1: Custom Stickers -->
+                    <div onclick="selectServiceForOrder('stickers')" class="bg-white p-4 rounded-3xl border border-pink-200/70 shadow-sm hover:border-terracotta/60 transition-all cursor-pointer group flex flex-col justify-between">
+                        <div>
+                            <div class="w-11 h-11 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <i data-lucide="sticker" class="w-6 h-6"></i>
+                            </div>
+                            <h4 id="srv-1-title" class="font-bold text-sm text-charcoal mb-1.5">ستيكرات مخصصة</h4>
+                            <p id="srv-1-desc" class="text-xs text-muted leading-relaxed">ستيكرات فينيل مقاومة للماء، قص دائري أو حسب الشكل (Die-cut) بلمعة أو مطفي.</p>
+                        </div>
+                        <div class="mt-3 pt-2.5 border-t border-pink-100 flex items-center justify-between text-[11px] font-bold text-terracotta">
+                            <span class="srv-order-link">اطلبي الآن</span>
+                            <i data-lucide="chevron-left" class="w-3.5 h-3.5 rtl-flip"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Logo & Branding Prints -->
+                    <div onclick="selectServiceForOrder('branding')" class="bg-white p-4 rounded-3xl border border-pink-200/70 shadow-sm hover:border-pink-400 transition-all cursor-pointer group flex flex-col justify-between">
+                        <div>
+                            <div class="w-11 h-11 rounded-2xl bg-pink-500/10 text-pink-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <i data-lucide="badge-check" class="w-6 h-6"></i>
+                            </div>
+                            <h4 id="srv-2-title" class="font-bold text-sm text-charcoal mb-1.5">طباعة اللوغو والهوية</h4>
+                            <p id="srv-2-desc" class="text-xs text-muted leading-relaxed">كروت شكر، تاقات ملابس ومنتجات، بزنس كارد، وأختام شمعية تبرز علامتك.</p>
+                        </div>
+                        <div class="mt-3 pt-2.5 border-t border-pink-100 flex items-center justify-between text-[11px] font-bold text-pink-600">
+                            <span class="srv-order-link">اطلبي الآن</span>
+                            <i data-lucide="chevron-left" class="w-3.5 h-3.5 rtl-flip"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Paper Bags & Packaging -->
+                    <div onclick="selectServiceForOrder('packaging')" class="bg-white p-4 rounded-3xl border border-pink-200/70 shadow-sm hover:border-fuchsia-400/60 transition-all cursor-pointer group flex flex-col justify-between">
+                        <div>
+                            <div class="w-11 h-11 rounded-2xl bg-fuchsia-500/10 text-fuchsia-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                            </div>
+                            <h4 id="srv-3-title" class="font-bold text-sm text-charcoal mb-1.5">أكياس ورقية وتغليف</h4>
+                            <p id="srv-3-desc" class="text-xs text-muted leading-relaxed">أكياس كرافت وأكياس فاخرة مطبوعة بشعارك، ورق تغليف (Tissue) وعلب منتجات.</p>
+                        </div>
+                        <div class="mt-3 pt-2.5 border-t border-pink-100 flex items-center justify-between text-[11px] font-bold text-fuchsia-600">
+                            <span class="srv-order-link">اطلبي الآن</span>
+                            <i data-lucide="chevron-left" class="w-3.5 h-3.5 rtl-flip"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Event Favors & Giveaways -->
+                    <div onclick="selectServiceForOrder('favors')" class="bg-white p-4 rounded-3xl border border-pink-200/70 shadow-sm hover:border-rose-400/60 transition-all cursor-pointer group flex flex-col justify-between">
+                        <div>
+                            <div class="w-11 h-11 rounded-2xl bg-rose-500/10 text-rose-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <i data-lucide="gift" class="w-6 h-6"></i>
+                            </div>
+                            <h4 id="srv-4-title" class="font-bold text-sm text-charcoal mb-1.5">توزيعات المناسبات</h4>
+                            <p id="srv-4-desc" class="text-xs text-muted leading-relaxed">توزيعات أعراس، تخرج، استقبال مواليد، وأعياد بتصاميم عصرية وعبارات مخصصة.</p>
+                        </div>
+                        <div class="mt-3 pt-2.5 border-t border-pink-100 flex items-center justify-between text-[11px] font-bold text-rose-500">
+                            <span class="srv-order-link">اطلبي الآن</span>
+                            <i data-lucide="chevron-left" class="w-3.5 h-3.5 rtl-flip"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio / Gallery Showcase -->
+            <section id="portfolio-section" class="px-5 pb-9">
+                <div class="mb-4">
+                    <span id="port-sub" class="text-xs font-bold text-terracotta uppercase tracking-wider">معرض الإبداع</span>
+                    <h3 id="port-title" class="text-xl font-extrabold text-charcoal mt-0.5">نماذج من أعمالي</h3>
+                </div>
+
+                <!-- Category Filter Pills -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-3 no-scrollbar" id="filter-tabs">
+                    <button onclick="filterPortfolio('all')" data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap bg-terracotta text-white shadow-sm transition-all cursor-pointer">
+                        الكل
+                    </button>
+                    <button onclick="filterPortfolio('stickers')" data-filter="stickers" class="filter-btn px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap bg-white text-muted border border-pink-200 hover:border-terracotta transition-all cursor-pointer">
+                        ستيكرات
+                    </button>
+                    <button onclick="filterPortfolio('packaging')" data-filter="packaging" class="filter-btn px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap bg-white text-muted border border-pink-200 hover:border-terracotta transition-all cursor-pointer">
+                        أكياس وتغليف
+                    </button>
+                    <button onclick="filterPortfolio('favors')" data-filter="favors" class="filter-btn px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap bg-white text-muted border border-pink-200 hover:border-terracotta transition-all cursor-pointer">
+                        توزيعات
+                    </button>
+                </div>
+
+                <!-- Portfolio Grid (2 Columns) -->
+                <div id="portfolio-grid" class="grid grid-cols-2 gap-3 mt-2">
+                    <!-- Rendered dynamically via JavaScript for clean bilingual & modal support -->
+                </div>
+            </section>
+
+            <!-- How to Order (3 Simple Steps) -->
+            <section class="px-5 pb-9">
+                <div class="bg-sand/90 rounded-3xl p-5 border border-pink-200/80">
+                    <span id="steps-sub" class="text-xs font-bold text-terracotta">خطوات بسيطة وسريعة</span>
+                    <h3 id="steps-title" class="text-lg font-extrabold text-charcoal mt-0.5 mb-4">كيف تطلبين تصميمك؟</h3>
+
+                    <div class="space-y-4">
+                        <!-- Step 1 -->
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-8 h-8 rounded-full bg-terracotta text-white font-extrabold text-sm flex items-center justify-center shrink-0 shadow-sm">1</div>
+                            <div>
+                                <h4 id="step-1-title" class="font-bold text-sm text-charcoal">اختاري المنتج والكمية</h4>
+                                <p id="step-1-desc" class="text-xs text-muted mt-0.5 leading-relaxed">حددي نوع المطبوعات (ستيكرات، أكياس، توزيعات) والمقاس والعدد المطلوب.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-8 h-8 rounded-full bg-sage text-white font-extrabold text-sm flex items-center justify-center shrink-0 shadow-sm">2</div>
+                            <div>
+                                <h4 id="step-2-title" class="font-bold text-sm text-charcoal">أرسلي شعارك أو فكرتك</h4>
+                                <p id="step-2-desc" class="text-xs text-muted mt-0.5 leading-relaxed">نجهز لكِ بروفة رقمية للمعاينة والتعديل قبل الطباعة لضمان رضاكِ التام.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex items-start gap-3.5">
+                            <div class="w-8 h-8 rounded-full bg-charcoal text-white font-extrabold text-sm flex items-center justify-center shrink-0 shadow-sm">3</div>
+                            <div>
+                                <h4 id="step-3-title" class="font-bold text-sm text-charcoal">طباعة متقنة وتوصيل لبابك</h4>
+                                <p id="step-3-desc" class="text-xs text-muted mt-0.5 leading-relaxed">نبدأ الطباعة والقص بأحدث التقنيات ونغلف طلبك بعناية ليصلك أينما كنتِ.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Order / Inquiry Section -->
+            <section id="order-section" class="px-5 pb-6">
+                <div class="bg-white rounded-3xl p-5 border border-pink-200/80 shadow-md shadow-pink-200/30">
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div class="w-9 h-9 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h3 id="form-title" class="font-extrabold text-base text-charcoal">ابدئي طلبكِ الآن</h3>
+                            <p id="form-sub" class="text-xs text-muted">املئي البيانات وسيتم تحويلك مباشرة للواتساب</p>
+                        </div>
+                    </div>
+
+                    <form id="quick-order-form" onsubmit="handleOrderSubmit(event)" class="space-y-3.5 mt-4">
+                        <!-- Client Name -->
+                        <div>
+                            <label id="lbl-name" for="client-name" class="block text-xs font-bold text-charcoal mb-1.5">الاسم الكريم / اسم المشروع</label>
+                            <input type="text" id="client-name" required placeholder="مثال: سارة / متجر ورد" class="w-full bg-cream border border-pink-200 rounded-2xl px-4 py-3 text-sm text-charcoal focus:outline-none focus:border-terracotta transition-colors">
+                        </div>
+
+                        <!-- Service Type -->
+                        <div>
+                            <label id="lbl-service" for="service-select" class="block text-xs font-bold text-charcoal mb-1.5">نوع الخدمة المطلوبة</label>
+                            <select id="service-select" class="w-full bg-cream border border-pink-200 rounded-2xl px-4 py-3 text-sm text-charcoal focus:outline-none focus:border-terracotta transition-colors">
+                                <option value="stickers" id="opt-stickers">ستيكرات مخصصة (Custom Stickers)</option>
+                                <option value="branding" id="opt-branding">طباعة اللوغو وكروت الهوية</option>
+                                <option value="packaging" id="opt-packaging">أكياس ورقية وتغليف منتجات</option>
+                                <option value="favors" id="opt-favors">توزيعات مناسبات (أعراس / مواليد / تخرج)</option>
+                                <option value="full" id="opt-full">باقة متكاملة لمشروع</option>
+                            </select>
+                        </div>
+
+                        <!-- Estimated Quantity -->
+                        <div>
+                            <label id="lbl-qty" for="order-qty" class="block text-xs font-bold text-charcoal mb-1.5">الكمية التقريبية</label>
+                            <input type="text" id="order-qty" required placeholder="مثال: 100 حبة / 50 كيس" class="w-full bg-cream border border-pink-200 rounded-2xl px-4 py-3 text-sm text-charcoal focus:outline-none focus:border-terracotta transition-colors">
+                        </div>
+
+                        <!-- Notes / Details -->
+                        <div>
+                            <label id="lbl-notes" for="order-notes" class="block text-xs font-bold text-charcoal mb-1.5">تفاصيل الطلب (المقاس، الألوان، المناسبة)</label>
+                            <textarea id="order-notes" rows="3" required placeholder="اكتبي تفاصيل فكرتك أو المقاس المطلوب..." class="w-full bg-cream border border-pink-200 rounded-2xl px-4 py-3 text-sm text-charcoal focus:outline-none focus:border-terracotta transition-colors resize-none"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-sm py-3.5 px-5 rounded-2xl shadow-lg shadow-[#25D366]/25 flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span id="btn-submit-text">إرسال الطلب عبر واتساب</span>
+                        </button>
+                    </form>
+
+                    <!-- Direct Social Links -->
+                    <div class="mt-6 pt-5 border-t border-pink-100 text-center">
+                        <p id="social-title" class="text-xs font-bold text-muted mb-3">تابعيني لمشاهدة أحدث الأعمال اليومية</p>
+                        <div class="flex items-center justify-center gap-3">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-11 h-11 rounded-2xl bg-cream hover:bg-terracotta hover:text-white text-charcoal border border-pink-200 flex items-center justify-center transition-all">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://wa.me/963980018756" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-11 h-11 rounded-2xl bg-cream hover:bg-[#25D366] hover:text-white text-charcoal border border-pink-200 flex items-center justify-center transition-all">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </a>
+                            <a href="mailto:hello@ranacraft.com" aria-label="Email" class="w-11 h-11 rounded-2xl bg-cream hover:bg-sage hover:text-white text-charcoal border border-pink-200 flex items-center justify-center transition-all">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- PAGE 2: Dedicated Standalone "About Me / من أنا" Page View -->
+        <main id="page-about" class="hidden flex-1 pb-24 animate-[fadeIn_0.25s_ease-out]">
+            
+            <!-- Designer Profile Hero Card -->
+            <section class="px-5 pt-6 pb-6">
+                <div class="relative mb-6">
+                    <!-- Glowing Soft Pink Backdrop -->
+                    <div class="absolute -inset-1.5 bg-gradient-to-tr from-terracotta/35 via-pink-300/45 to-rose-200/50 rounded-[32px] blur-md opacity-85"></div>
+
+                    <!-- Floating Creator Pill -->
+                    <div class="absolute -top-3 end-3 z-20 bg-white border-2 border-pink-200 px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                        <span class="text-sm">🌸</span>
+                        <span id="about-float-badge" class="text-[11px] font-extrabold text-terracotta">مؤسسة ومصممة الاستوديو</span>
+                    </div>
+
+                    <!-- Designer Workspace / Portrait Frame -->
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-pink-300/40 aspect-[4/3] bg-sand border-2 border-white">
+                        <img 
+                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=950&q=85" 
+                            onerror="this.src='https://placehold.co/800x600/FCE7EF/E15B88?text=Rana+Craft+Founder'"
+                            alt="Rana Craft Creative Designer Workspace" 
+                            class="w-full h-full object-cover object-center"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/75 via-charcoal/15 to-pink-200/10"></div>
+
+                        <!-- Bottom Name & Title Overlay -->
+                        <div class="absolute bottom-3.5 start-3.5 end-3.5 text-white">
+                            <div class="inline-flex items-center gap-1 bg-terracotta/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-[10px] font-bold mb-1.5">
+                                <i data-lucide="badge-check" class="w-3 h-3"></i>
+                                <span id="about-verified-tag">مصممة جرافيك وتغليف إبداعي</span>
+                            </div>
+                            <h2 id="about-founder-name" class="text-xl font-extrabold leading-tight">رنا — مؤسسة رنا كرافت</h2>
+                            <p id="about-founder-role" class="text-xs text-pink-100 mt-0.5">شغوفة بالورق، الألوان، وصناعة التفاصيل التي تُسعد القلب ✨</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Highlights / Stats Row -->
+                <div class="bg-white rounded-3xl p-4 border border-pink-200/80 shadow-sm grid grid-cols-3 divide-x divide-x-reverse divide-pink-100 text-center" id="about-stats-grid">
+                    <div class="px-1.5">
+                        <p class="text-base font-extrabold text-terracotta">+350</p>
+                        <p id="about-stat-1" class="text-[11px] font-medium text-muted mt-0.5">مشروع منفذ</p>
+                    </div>
+                    <div class="px-1.5">
+                        <p class="text-base font-extrabold text-sage">100%</p>
+                        <p id="about-stat-2" class="text-[11px] font-medium text-muted mt-0.5">شغل يدوي وتصميم خاص</p>
+                    </div>
+                    <div class="px-1.5">
+                        <p class="text-base font-extrabold text-charcoal">🎀</p>
+                        <p id="about-stat-3" class="text-[11px] font-medium text-muted mt-0.5">تغليف بحب</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Story & Passion Section -->
+            <section class="px-5 pb-7">
+                <div class="bg-white rounded-3xl p-5 border border-pink-200/80 shadow-sm space-y-3">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta/15 text-terracotta text-xs font-bold">
+                        <i data-lucide="heart" class="w-3.5 h-3.5 fill-terracotta"></i>
+                        <span id="about-story-tag">قصتي وشغفي</span>
+                    </div>
+                    <h3 id="about-story-title" class="text-lg font-extrabold text-charcoal leading-snug">
+                        من مكتب صغير وحب كبير للتفاصيل.. وُلدت «رنا كرافت»
+                    </h3>
+                    <p id="about-story-p1" class="text-xs text-muted leading-relaxed">
+                        أهلاً بكِ! أنا رنا، بدأت رحلتي من شغف بسيط بتجميع الأوراق الملونة، الشرائط الناعمة، وتصميم الستيكرات اللطيفة لمشاريع صديقاتي ومناسبات العائلة.
+                    </p>
+                    <p id="about-story-p2" class="text-xs text-muted leading-relaxed">
+                        أؤمن أن التغليف الجميل أو التوزيعة المصممة بعناية ليست مجرد ورق وحبر، بل هي أول ابتسامة يراها عميلك عند فتح طلبه، وأجمل ذكرى يحتفظ بها ضيوفك في مناسباتك السعيدة. لذلك أتعامل مع كل طلب وكأنه صُمم لي شخصياً.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Why Choose My Work? Section -->
+            <section class="px-5 pb-7">
+                <div class="mb-3.5">
+                    <span id="about-why-sub" class="text-xs font-bold text-terracotta">ما يميز استوديو رنا كرافت</span>
+                    <h3 id="about-why-title" class="text-lg font-extrabold text-charcoal mt-0.5">لماذا تختارين تصاميمي؟</h3>
+                </div>
+
+                <div class="space-y-3">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-4 rounded-3xl border border-pink-200/70 shadow-sm flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center shrink-0">
+                            <i data-lucide="gem" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 id="why-1-title" class="font-bold text-sm text-charcoal">خامات ورقية فاخرة وطباعة عالية الدقة</h4>
+                            <p id="why-1-desc" class="text-xs text-muted mt-1 leading-relaxed">أنتقي أجود أنواع الورق والفينيل المقاوم للماء بألوان زاهية وثابتة تليق بفخامة مشروعك.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-4 rounded-3xl border border-pink-200/70 shadow-sm flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-2xl bg-pink-500/10 text-pink-600 flex items-center justify-center shrink-0">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 id="why-2-title" class="font-bold text-sm text-charcoal">اهتمام بأدق التفاصيل</h4>
+                            <p id="why-2-desc" class="text-xs text-muted mt-1 leading-relaxed">من دقة القص حول الشعار وحتى تنسيق الألوان وربط الشرائط يدوياً، كل تفصيلة تمر بمراجعة دقيقة.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-4 rounded-3xl border border-pink-200/70 shadow-sm flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-500/10 text-rose-500 flex items-center justify-center shrink-0">
+                            <i data-lucide="palette" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 id="why-3-title" class="font-bold text-sm text-charcoal">مرونة وتنفيذ حسب الطلب 100%</h4>
+                            <p id="why-3-desc" class="text-xs text-muted mt-1 leading-relaxed">سواء كان لديكِ شعار جاهز أو مجرد فكرة في خيالك، أساعدك في تحويلها لتصميم متكامل يناسب ذوقك.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Studio Moodboard & Behind the Scenes -->
+            <section class="px-5 pb-7">
+                <div class="mb-3.5">
+                    <span id="about-bts-sub" class="text-xs font-bold text-terracotta">كواليس العمل</span>
+                    <h3 id="about-bts-title" class="text-lg font-extrabold text-charcoal mt-0.5">لمحة من كواليس الاستوديو 🎀</h3>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- BTS Card 1 -->
+                    <div class="bg-white p-2.5 rounded-3xl border border-pink-200/70 shadow-sm">
+                        <div class="aspect-square rounded-2xl overflow-hidden bg-sand mb-2">
+                            <img 
+                                src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" 
+                                onerror="this.src='https://placehold.co/400x400/FCE7EF/E15B88?text=Color+Palette'"
+                                alt="Color & Paper Selection" 
+                                class="w-full h-full object-cover"
+                            >
+                        </div>
+                        <p id="bts-1-cap" class="text-[11px] font-bold text-charcoal text-center">تنسيق الألوان والخامات 🎨</p>
+                    </div>
+
+                    <!-- BTS Card 2 -->
+                    <div class="bg-white p-2.5 rounded-3xl border border-pink-200/70 shadow-sm">
+                        <div class="aspect-square rounded-2xl overflow-hidden bg-sand mb-2">
+                            <img 
+                                src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=600&q=80" 
+                                onerror="this.src='https://placehold.co/400x400/FCE7EF/E15B88?text=Packed+With+Love'"
+                                alt="Handmade Packaging" 
+                                class="w-full h-full object-cover"
+                            >
+                        </div>
+                        <p id="bts-2-cap" class="text-[11px] font-bold text-charcoal text-center">تغليف الطلبات بكل حب 💌</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Call-to-Action Card on About Page -->
+            <section class="px-5 pb-6">
+                <div class="bg-gradient-to-br from-terracotta to-[#EC6F99] rounded-3xl p-5 text-white shadow-lg shadow-terracotta/30 text-center space-y-3">
+                    <div class="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 id="about-cta-title" class="text-lg font-extrabold">جاهزة نبدأ مشروعك أو مناسبتك القادمة؟</h3>
+                    <p id="about-cta-desc" class="text-xs text-pink-100 leading-relaxed">
+                        تصفحي نماذج أعمالي أو تواصلي معي مباشرة عبر الواتساب لمناقشة فكرتك وتجهيز عرض سعر مخصص لكِ.
+                    </p>
+                    <div class="pt-1 flex flex-col sm:flex-row gap-2.5">
+                        <button onclick="goToHomeSection('portfolio-section')" class="flex-1 bg-white text-terracotta hover:bg-cream font-bold text-xs py-3 px-4 rounded-2xl shadow-sm transition-all active:scale-95 cursor-pointer">
+                            <span id="about-cta-btn1">تصفحي أعمالي</span>
+                        </button>
+                        <a href="https://wa.me/963980018756" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs py-3 px-4 rounded-2xl shadow-sm flex items-center justify-center gap-1.5 transition-all active:scale-95">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span id="about-cta-btn2">تواصلي معي واتساب</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-sand/80 border-t border-pink-200/80 py-5 px-5 text-center text-xs text-muted">
+            <p id="footer-copy" class="font-medium">© 2026 استوديو رنا كرافت — جميع الحقوق محفوظة</p>
+        </footer>
+
+        <!-- Floating WhatsApp Button (Constrained cleanly inside the 480px mobile frame) -->
+        <div class="fixed bottom-4 w-full max-w-[480px] px-5 pointer-events-none z-30 flex justify-end">
+            <a href="https://wa.me/963980018756" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="pointer-events-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white w-14 h-14 rounded-full shadow-xl shadow-[#25D366]/35 flex items-center justify-center transition-transform hover:scale-105 active:scale-95">
+                <i data-lucide="message-circle" class="w-7 h-7 fill-white text-[#25D366]"></i>
+            </a>
+        </div>
+
+        <!-- Lightbox Modal for Portfolio Item Inspection (Constrained inside 480px) -->
+        <div id="lightbox-modal" onclick="closeLightbox(event)" class="fixed inset-0 z-50 bg-charcoal/80 backdrop-blur-sm hidden items-center justify-center p-4">
+            <div onclick="event.stopPropagation()" class="bg-white w-full max-w-[430px] rounded-3xl overflow-hidden shadow-2xl animate-[fadeIn_0.2s_ease-out]">
+                <div class="relative aspect-square bg-sand">
+                    <img id="modal-img" src="" alt="Preview" class="w-full h-full object-cover">
+                    <button onclick="closeLightbox()" class="absolute top-3 end-3 w-9 h-9 rounded-full bg-white/90 text-charcoal flex items-center justify-center shadow-md hover:bg-terracotta hover:text-white transition-colors cursor-pointer">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                    <span id="modal-badge" class="absolute bottom-3 start-3 bg-charcoal/85 text-white text-[11px] font-bold px-3 py-1 rounded-full backdrop-blur-md"></span>
+                </div>
+                <div class="p-5">
+                    <h4 id="modal-title" class="font-extrabold text-lg text-charcoal"></h4>
+                    <p id="modal-desc" class="text-xs text-muted mt-1.5 leading-relaxed"></p>
+                    <button onclick="orderFromModal()" class="mt-4 w-full bg-terracotta hover:bg-terracottaDark text-white font-bold text-xs py-3 px-4 rounded-2xl flex items-center justify-center gap-2 transition-all cursor-pointer">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span id="modal-cta-text">اطلبي تصميم مشابه</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Toast Notification (No alert() used) -->
+        <div id="toast-msg" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-charcoal text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#25D366]"></i>
+            <span id="toast-text">تم الاختيار بنجاح</span>
+        </div>
+
+    </div>
+
+    <!-- Custom Minimal Utilities for Scrollbar Hiding, Marquee Animation & Keyframes -->
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        /* Seamless Infinite Marquee for RTL (Arabic) & LTR (English) */
+        @keyframes marqueeScrollRTL {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes marqueeScrollLTR {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-rtl {
+            animation: marqueeScrollRTL 18s linear infinite;
+        }
+        .marquee-ltr {
+            animation: marqueeScrollLTR 18s linear infinite;
+        }
+    </style>
+
+    <!-- Application Logic & Bilingual Content -->
+    <script>
+        // Current Language State ('ar' or 'en') & Active Page ('home' or 'about')
+        let currentLang = 'ar';
+        let currentPage = 'home';
+        let currentFilter = 'all';
+        let selectedModalItem = null;
+
+        // Portfolio Items Database (Bilingual with Reliable Unsplash Images)
+        const portfolioItems = [
+            {
+                id: 1,
+                category: 'stickers',
+                image: 'https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&w=700&q=80',
+                badgeAr: 'ستيكرات مخصصة',
+                badgeEn: 'Custom Stickers',
+                titleAr: 'ستيكرات فينيل مقاومة للماء',
+                titleEn: 'Waterproof Vinyl Die-Cut Stickers',
+                descAr: 'طباعة عالية الدقة بألوان زاهية وقص احترافي حول الشعار، مثالية للأكواب وعلب المنتجات.',
+                descEn: 'High-resolution vibrant printing with precision contour cutting, ideal for cups and product jars.'
+            },
+            {
+                id: 2,
+                category: 'packaging',
+                image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=700&q=80',
+                badgeAr: 'أكياس وتغليف',
+                badgeEn: 'Bags & Packaging',
+                titleAr: 'أكياس كرافت مطبوعة باللوغو',
+                titleEn: 'Custom Branded Kraft Paper Bags',
+                descAr: 'أكياس ورقية صديقة للبيئة بمقابض متينة وطباعة حريرية نظيفة لهوية متجرك.',
+                descEn: 'Eco-friendly Kraft paper bags with sturdy handles and crisp logo printing for your boutique.'
+            },
+            {
+                id: 3,
+                category: 'favors',
+                image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=700&q=80',
+                badgeAr: 'توزيعات مناسبات',
+                badgeEn: 'Event Favors',
+                titleAr: 'توزيعات أعراس واستقبال مواليد',
+                titleEn: 'Wedding & Baby Shower Favors',
+                descAr: 'علب هدايا صغيرة مزينة بشرائط الساتان وتاقات تحمل أسماء العروسين أو المولود.',
+                descEn: 'Delicate mini favor boxes finished with satin ribbons and custom calligraphy name tags.'
+            },
+            {
+                id: 4,
+                category: 'packaging',
+                image: 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=700&q=80',
+                badgeAr: 'هوية وتغليف',
+                badgeEn: 'Branding & Boxes',
+                titleAr: 'بوكسات شحن وكروت شكر',
+                titleEn: 'Mailer Boxes & Thank You Cards',
+                descAr: 'تجربة فتح صندوق (Unboxing) متكاملة تشمل كرت الشكر، ستيكر الإغلاق، وورق التغليف.',
+                descEn: 'Complete unboxing experience featuring custom thank-you cards, seal stickers, and tissue paper.'
+            },
+            {
+                id: 5,
+                category: 'stickers',
+                image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=700&q=80',
+                badgeAr: 'أختام وستيكرات',
+                badgeEn: 'Seals & Labels',
+                titleAr: 'ستيكرات إغلاق ذهبية وشفافة',
+                titleEn: 'Gold Foil & Clear Seal Labels',
+                descAr: 'لمسة فخامة لإغلاق الأظرف وعلب الحلويات والعطور بطباعة بارزة وأنيقة.',
+                descEn: 'Luxurious finishing touch for envelopes, pastry boxes, and perfume bottles.'
+            },
+            {
+                id: 6,
+                category: 'favors',
+                image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80',
+                badgeAr: 'توزيعات تخرج وأعياد',
+                badgeEn: 'Graduation & Eid',
+                titleAr: 'توزيعات تخرج وتهنئة بالعيد',
+                titleEn: 'Graduation & Eid Gift Pouches',
+                descAr: 'تصاميم مبهجة مخصصة للتخرج والأعياد مع إمكانية إضافة باركود أو إهداء خاص.',
+                descEn: 'Festive custom designs for graduations and Eid celebrations with personalized messages.'
+            }
+        ];
+
+        // Bilingual UI Dictionary
+        const translations = {
+            ar: {
+                brandName: 'رنا كرافت',
+                brandSub: 'للطباعة والتغليف الإبداعي',
+                navHome: 'الرئيسية',
+                navAbout: 'من أنا',
+                langBtnText: 'EN',
+                heroFloatSticker: 'تصاميم بناتية ناعمة',
+                heroBadge: 'تصميم وطباعة حسب الطلب 100%',
+                heroTag: 'نحول أفكارك إلى تفاصيل ملموسة',
+                heroTitle: 'لمسات إبداعية تبرز هوية مشروعك وتُخلّد أجمل مناسباتك ✨',
+                heroDesc: 'أهلاً بكِ في مساحتي الإبداعية! أصمم وأطبع الستيكرات المخصصة، الأكياس الورقية، تغليف المنتجات، وتوزيعات المناسبات السعيدة بأعلى جودة وأدق التفاصيل لتترك انطباعاً لا يُنسى.',
+                ctaPrimary: 'اطلبي تصميمك الآن',
+                ctaSecondary: 'أعمالي',
+                marqueeMain: 'نطبع شغفكِ بأدق التفاصيل ✨ ستيكرات، تغليف وتوزيعات تصنع الفرق 🌸',
+                marqueeAlt: 'لمسة أنثوية راقية لكل مشروع ومناسبة سعيدة 🎀',
+                stat1: 'طلب مُنفّذ',
+                stat2: 'دقة ألوان وجودة',
+                stat3: 'مشروع ومناسبة',
+                servicesSub: 'ماذا أقدم لكِ؟',
+                servicesTitle: 'خدمات التصميم والطباعة',
+                srv1Title: 'ستيكرات مخصصة',
+                srv1Desc: 'ستيكرات فينيل مقاومة للماء، قص دائري أو حسب الشكل (Die-cut) بلمعة أو مطفي.',
+                srv2Title: 'طباعة اللوغو والهوية',
+                srv2Desc: 'كروت شكر، تاقات ملابس ومنتجات، بزنس كارد، وأختام شمعية تبرز علامتك.',
+                srv3Title: 'أكياس ورقية وتغليف',
+                srv3Desc: 'أكياس كرافت وأكياس فاخرة مطبوعة بشعارك، ورق تغليف (Tissue) وعلب منتجات.',
+                srv4Title: 'توزيعات المناسبات',
+                srv4Desc: 'توزيعات أعراس، تخرج، استقبال مواليد، وأعياد بتصاميم عصرية وعبارات مخصصة.',
+                srvOrderLink: 'اطلبي الآن',
+                portSub: 'معرض الإبداع',
+                portTitle: 'نماذج من أعمالي',
+                filters: { all: 'الكل', stickers: 'ستيكرات', packaging: 'أكياس وتغليف', favors: 'توزيعات' },
+                stepsSub: 'خطوات بسيطة وسريعة',
+                stepsTitle: 'كيف تطلبين تصميمك؟',
+                step1Title: 'اختاري المنتج والكمية',
+                step1Desc: 'حددي نوع المطبوعات (ستيكرات، أكياس، توزيعات) والمقاس والعدد المطلوب.',
+                step2Title: 'أرسلي شعارك أو فكرتك',
+                step2Desc: 'نجهز لكِ بروفة رقمية للمعاينة والتعديل قبل الطباعة لضمان رضاكِ التام.',
+                step3Title: 'طباعة متقنة وتوصيل لبابك',
+                step3Desc: 'نبدأ الطباعة والقص بأحدث التقنيات ونغلف طلبك بعناية ليصلك أينما كنتِ.',
+                formTitle: 'ابدئي طلبكِ الآن',
+                formSub: 'املئي البيانات وسيتم تحويلك مباشرة للواتساب',
+                lblName: 'الاسم الكريم / اسم المشروع',
+                phName: 'مثال: سارة / متجر ورد',
+                lblService: 'نوع الخدمة المطلوبة',
+                optStickers: 'ستيكرات مخصصة (Custom Stickers)',
+                optBranding: 'طباعة اللوغو وكروت الهوية',
+                optPackaging: 'أكياس ورقية وتغليف منتجات',
+                optFavors: 'توزيعات مناسبات (أعراس / مواليد / تخرج)',
+                optFull: 'باقة متكاملة لمشروع',
+                lblQty: 'الكمية التقريبية',
+                phQty: 'مثال: 100 حبة / 50 كيس',
+                lblNotes: 'تفاصيل الطلب (المقاس، الألوان، المناسبة)',
+                phNotes: 'اكتبي تفاصيل فكرتك أو المقاس المطلوب...',
+                btnSubmit: 'إرسال الطلب عبر واتساب',
+                socialTitle: 'تابعيني لمشاهدة أحدث الأعمال اليومية',
+                footerCopy: '© 2026 استوديو رنا كرافت — جميع الحقوق محفوظة',
+                modalCta: 'اطلبي تصميم مشابه',
+                // About Page Translations
+                aboutFloatBadge: 'مؤسسة ومصممة الاستوديو',
+                aboutVerifiedTag: 'مصممة جرافيك وتغليف إبداعي',
+                aboutFounderName: 'رنا — مؤسسة رنا كرافت',
+                aboutFounderRole: 'شغوفة بالورق، الألوان، وصناعة التفاصيل التي تُسعد القلب ✨',
+                aboutStat1: 'مشروع منفذ',
+                aboutStat2: 'شغل يدوي وتصميم خاص',
+                aboutStat3: 'تغليف بحب',
+                aboutStoryTag: 'قصتي وشغفي',
+                aboutStoryTitle: 'من مكتب صغير وحب كبير للتفاصيل.. وُلدت «رنا كرافت»',
+                aboutStoryP1: 'أهلاً بكِ! أنا رنا، بدأت رحلتي من شغف بسيط بتجميع الأوراق الملونة، الشرائط الناعمة، وتصميم الستيكرات اللطيفة لمشاريع صديقاتي ومناسبات العائلة.',
+                aboutStoryP2: 'أؤمن أن التغليف الجميل أو التوزيعة المصممة بعناية ليست مجرد ورق وحبر، بل هي أول ابتسامة يراها عميلك عند فتح طلبه، وأجمل ذكرى يحتفظ بها ضيوفك في مناسباتك السعيدة. لذلك أتعامل مع كل طلب وكأنه صُمم لي شخصياً.',
+                aboutWhySub: 'ما يميز استوديو رنا كرافت',
+                aboutWhyTitle: 'لماذا تختارين تصاميمي؟',
+                why1Title: 'خامات ورقية فاخرة وطباعة عالية الدقة',
+                why1Desc: 'أنتقي أجود أنواع الورق والفينيل المقاوم للماء بألوان زاهية وثابتة تليق بفخامة مشروعك.',
+                why2Title: 'اهتمام بأدق التفاصيل',
+                why2Desc: 'من دقة القص حول الشعار وحتى تنسيق الألوان وربط الشرائط يدوياً، كل تفصيلة تمر بمراجعة دقيقة.',
+                why3Title: 'مرونة وتنفيذ حسب الطلب 100%',
+                why3Desc: 'سواء كان لديكِ شعار جاهز أو مجرد فكرة في خيالك، أساعدك في تحويلها لتصميم متكامل يناسب ذوقك.',
+                aboutBtsSub: 'كواليس العمل',
+                aboutBtsTitle: 'لمحة من كواليس الاستوديو 🎀',
+                bts1Cap: 'تنسيق الألوان والخامات 🎨',
+                bts2Cap: 'تغليف الطلبات بكل حب 💌',
+                aboutCtaTitle: 'جاهزة نبدأ مشروعك أو مناسبتك القادمة؟',
+                aboutCtaDesc: 'تصفحي نماذج أعمالي أو تواصلي معي مباشرة عبر الواتساب لمناقشة فكرتك وتجهيز عرض سعر مخصص لكِ.',
+                aboutCtaBtn1: 'تصفحي أعمالي',
+                aboutCtaBtn2: 'تواصلي معي واتساب'
+            },
+            en: {
+                brandName: 'Rana Craft',
+                brandSub: 'Creative Print & Packaging Studio',
+                navHome: 'Home',
+                navAbout: 'About Me',
+                langBtnText: 'عربي',
+                heroFloatSticker: 'Aesthetic Girly Designs',
+                heroBadge: '100% Custom Design & Printing',
+                heroTag: 'Turning Ideas Into Tangible Details',
+                heroTitle: 'Creative Prints That Elevate Your Brand & Celebrate Your Moments ✨',
+                heroDesc: 'Welcome to my creative studio! I design and print custom die-cut stickers, branded paper bags, boutique packaging, and bespoke event favors with premium quality and love for detail.',
+                ctaPrimary: 'Order Your Design',
+                ctaSecondary: 'Portfolio',
+                marqueeMain: 'Printing your passion in every detail ✨ Custom stickers, packaging & favors 🌸',
+                marqueeAlt: 'Elegant feminine touch for every brand & special occasion 🎀',
+                stat1: 'Orders Completed',
+                stat2: 'Print Precision',
+                stat3: 'Brands & Events',
+                servicesSub: 'What I Offer',
+                servicesTitle: 'Design & Print Services',
+                srv1Title: 'Custom Stickers',
+                srv1Desc: 'Waterproof vinyl stickers, die-cut or circle shapes in glossy, matte, or clear finishes.',
+                srv2Title: 'Logo & Brand Prints',
+                srv2Desc: 'Thank-you cards, product hang tags, business cards, and wax seals for your brand.',
+                srv3Title: 'Paper Bags & Packaging',
+                srv3Desc: 'Custom printed Kraft & luxury gift bags, branded tissue paper, and mailer boxes.',
+                srv4Title: 'Event Favors & Gifts',
+                srv4Desc: 'Personalized giveaways for weddings, graduations, baby showers, and Eid celebrations.',
+                srvOrderLink: 'Order Now',
+                portSub: 'Creative Showcase',
+                portTitle: 'Recent Works',
+                filters: { all: 'All', stickers: 'Stickers', packaging: 'Bags & Boxes', favors: 'Event Favors' },
+                stepsSub: 'Simple & Fast Process',
+                stepsTitle: 'How to Place an Order?',
+                step1Title: 'Choose Product & Quantity',
+                step1Desc: 'Select your desired print items (stickers, bags, favors), size, and quantity.',
+                step2Title: 'Send Your Logo or Idea',
+                step2Desc: 'We prepare a digital mockup for your review and approval before printing.',
+                step3Title: 'Quality Print & Fast Delivery',
+                step3Desc: 'Precision printing and cutting, carefully packaged and delivered to your door.',
+                formTitle: 'Start Your Order',
+                formSub: 'Fill in the details to send directly via WhatsApp',
+                lblName: 'Your Name / Brand Name',
+                phName: 'e.g., Sarah / Bloom Boutique',
+                lblService: 'Select Service',
+                optStickers: 'Custom Stickers (Vinyl / Die-cut)',
+                optBranding: 'Logo Printing & Brand Cards',
+                optPackaging: 'Paper Bags & Custom Packaging',
+                optFavors: 'Event Favors (Wedding / Baby / Grad)',
+                optFull: 'Complete Brand Packaging Bundle',
+                lblQty: 'Estimated Quantity',
+                phQty: 'e.g., 100 pcs / 50 bags',
+                lblNotes: 'Order Details (Size, Colors, Event Date)',
+                phNotes: 'Describe your idea, colors, or size...',
+                btnSubmit: 'Send Order via WhatsApp',
+                socialTitle: 'Follow for daily behind-the-scenes & new prints',
+                footerCopy: '© 2026 Rana Craft Studio — All Rights Reserved',
+                modalCta: 'Request Similar Design',
+                // About Page Translations
+                aboutFloatBadge: 'Founder & Lead Designer',
+                aboutVerifiedTag: 'Graphic & Packaging Designer',
+                aboutFounderName: 'Rana — Founder of Rana Craft',
+                aboutFounderRole: 'Passionate about paper, colors & tiny details that spark joy ✨',
+                aboutStat1: 'Completed Projects',
+                aboutStat2: 'Custom & Handmade',
+                aboutStat3: 'Packed with Love',
+                aboutStoryTag: 'My Story & Passion',
+                aboutStoryTitle: 'From a Small Desk & Love for Details.. "Rana Craft" Was Born',
+                aboutStoryP1: 'Hi there! I’m Rana. My journey started from a simple love for collecting pastel papers, satin ribbons, and designing cute stickers for friends’ small businesses and family celebrations.',
+                aboutStoryP2: 'I believe thoughtful packaging or a custom event favor is more than just paper and ink—it’s the very first smile your customer sees when unboxing their order, and a cherished keepsake for your guests. Every order is crafted as if it were made for myself.',
+                aboutWhySub: 'The Rana Craft Difference',
+                aboutWhyTitle: 'Why Choose My Work?',
+                why1Title: 'Premium Paper & Crisp Printing',
+                why1Desc: 'I handpick high-grade paper stocks and waterproof vinyl with vibrant, lasting colors worthy of your brand.',
+                why2Title: 'Obsessed with Tiny Details',
+                why2Desc: 'From precision contour cutting around your logo to hand-tied ribbons, every piece passes careful inspection.',
+                why3Title: 'Fully Tailored to Your Vibe',
+                why3Desc: 'Whether you already have a logo or just a rough idea, I help bring your vision to life seamlessly.',
+                aboutBtsSub: 'Behind the Scenes',
+                aboutBtsTitle: 'Inside the Studio Moodboard 🎀',
+                bts1Cap: 'Color & Paper Curation 🎨',
+                bts2Cap: 'Packed with Love & Care 💌',
+                aboutCtaTitle: 'Ready to Start Your Brand or Event Project?',
+                aboutCtaDesc: 'Explore my recent works or message me directly on WhatsApp to discuss your ideas and get a custom quote.',
+                aboutCtaBtn1: 'Browse My Work',
+                aboutCtaBtn2: 'Chat on WhatsApp'
+            }
+        };
+
+        // Switch Between "Home" and "About Me" Standalone Views
+        function switchPage(page) {
+            currentPage = page;
+            const homePage = document.getElementById('page-home');
+            const aboutPage = document.getElementById('page-about');
+            const navHomeBtn = document.getElementById('nav-home-btn');
+            const navAboutBtn = document.getElementById('nav-about-btn');
+
+            if (page === 'home') {
+                homePage.classList.remove('hidden');
+                aboutPage.classList.add('hidden');
+                navHomeBtn.className = 'px-2.5 py-1 rounded-full text-[11px] font-bold bg-terracotta text-white shadow-sm transition-all cursor-pointer';
+                navAboutBtn.className = 'px-2.5 py-1 rounded-full text-[11px] font-bold text-muted hover:text-charcoal transition-all cursor-pointer';
+            } else {
+                homePage.classList.add('hidden');
+                aboutPage.classList.remove('hidden');
+                navAboutBtn.className = 'px-2.5 py-1 rounded-full text-[11px] font-bold bg-terracotta text-white shadow-sm transition-all cursor-pointer';
+                navHomeBtn.className = 'px-2.5 py-1 rounded-full text-[11px] font-bold text-muted hover:text-charcoal transition-all cursor-pointer';
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Helper to jump from About page to a specific section on Home page
+        function goToHomeSection(sectionId) {
+            switchPage('home');
+            setTimeout(() => {
+                const target = document.getElementById(sectionId);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            }, 80);
+        }
+
+        // Render Portfolio Cards based on Language & Active Filter
+        function renderPortfolio() {
+            const grid = document.getElementById('portfolio-grid');
+            const filtered = currentFilter === 'all' 
+                ? portfolioItems 
+                : portfolioItems.filter(item => item.category === currentFilter);
+
+            grid.innerHTML = filtered.map(item => {
+                const title = currentLang === 'ar' ? item.titleAr : item.titleEn;
+                const badge = currentLang === 'ar' ? item.badgeAr : item.badgeEn;
+                
+                return `
+                    <div onclick="openLightbox(${item.id})" class="group relative rounded-2xl overflow-hidden bg-sand aspect-square shadow-sm border border-pink-200/70 cursor-pointer">
+                        <img 
+                            src="${item.image}" 
+                            onerror="this.src='https://placehold.co/500x500/FCE7EF/E15B88?text=Lamsat+Fan'"
+                            alt="${title}" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/15 to-transparent opacity-90"></div>
+                        <span class="absolute top-2.5 start-2.5 bg-white/95 backdrop-blur-sm text-charcoal text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            ${badge}
+                        </span>
+                        <div class="absolute bottom-2.5 start-2.5 end-2.5">
+                            <p class="text-white font-bold text-xs leading-snug line-clamp-2">${title}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Filter Portfolio Handler
+        function filterPortfolio(category) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.className = 'filter-btn active px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap bg-terracotta text-white shadow-sm transition-all cursor-pointer';
+                } else {
+                    btn.className = 'filter-btn px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap bg-white text-muted border border-pink-200 hover:border-terracotta transition-all cursor-pointer';
+                }
+            });
+            renderPortfolio();
+        }
+
+        // Toggle Arabic / English Language & RTL / LTR Direction
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const htmlEl = document.documentElement;
+            const bodyEl = document.body;
+            const t = translations[currentLang];
+
+            // Update HTML lang, dir, and font family
+            htmlEl.setAttribute('lang', currentLang);
+            htmlEl.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            
+            if (currentLang === 'ar') {
+                bodyEl.classList.remove('font-english');
+                bodyEl.classList.add('font-arabic');
+            } else {
+                bodyEl.classList.remove('font-arabic');
+                bodyEl.classList.add('font-english');
+            }
+
+            // Update Text Nodes
+            document.getElementById('brand-name').textContent = t.brandName;
+            document.getElementById('brand-sub').textContent = t.brandSub;
+            document.getElementById('nav-home-btn').textContent = t.navHome;
+            document.getElementById('nav-about-btn').textContent = t.navAbout;
+            document.getElementById('lang-btn-text').textContent = t.langBtnText;
+            document.getElementById('hero-float-sticker').textContent = t.heroFloatSticker;
+            document.getElementById('hero-badge').textContent = t.heroBadge;
+            document.getElementById('hero-tag').textContent = t.heroTag;
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-desc').textContent = t.heroDesc;
+            document.getElementById('cta-primary-text').textContent = t.ctaPrimary;
+            document.getElementById('cta-secondary-text').textContent = t.ctaSecondary;
+
+            // Update Marquee Phrases & Direction Animation
+            document.querySelectorAll('.marquee-phrase').forEach(el => el.textContent = t.marqueeMain);
+            document.querySelectorAll('.marquee-phrase-alt').forEach(el => el.textContent = t.marqueeAlt);
+            const marqueeTrack = document.getElementById('marquee-track');
+            if (currentLang === 'ar') {
+                marqueeTrack.classList.remove('marquee-ltr');
+                marqueeTrack.classList.add('marquee-rtl');
+            } else {
+                marqueeTrack.classList.remove('marquee-rtl');
+                marqueeTrack.classList.add('marquee-ltr');
+            }
+            
+            document.getElementById('stat-1').textContent = t.stat1;
+            document.getElementById('stat-2').textContent = t.stat2;
+            document.getElementById('stat-3').textContent = t.stat3;
+
+            document.getElementById('services-sub').textContent = t.servicesSub;
+            document.getElementById('services-title').textContent = t.servicesTitle;
+            document.getElementById('srv-1-title').textContent = t.srv1Title;
+            document.getElementById('srv-1-desc').textContent = t.srv1Desc;
+            document.getElementById('srv-2-title').textContent = t.srv2Title;
+            document.getElementById('srv-2-desc').textContent = t.srv2Desc;
+            document.getElementById('srv-3-title').textContent = t.srv3Title;
+            document.getElementById('srv-3-desc').textContent = t.srv3Desc;
+            document.getElementById('srv-4-title').textContent = t.srv4Title;
+            document.getElementById('srv-4-desc').textContent = t.srv4Desc;
+            document.querySelectorAll('.srv-order-link').forEach(el => el.textContent = t.srvOrderLink);
+
+            document.getElementById('port-sub').textContent = t.portSub;
+            document.getElementById('port-title').textContent = t.portTitle;
+            document.querySelector('[data-filter="all"]').textContent = t.filters.all;
+            document.querySelector('[data-filter="stickers"]').textContent = t.filters.stickers;
+            document.querySelector('[data-filter="packaging"]').textContent = t.filters.packaging;
+            document.querySelector('[data-filter="favors"]').textContent = t.filters.favors;
+
+            document.getElementById('steps-sub').textContent = t.stepsSub;
+            document.getElementById('steps-title').textContent = t.stepsTitle;
+            document.getElementById('step-1-title').textContent = t.step1Title;
+            document.getElementById('step-1-desc').textContent = t.step1Desc;
+            document.getElementById('step-2-title').textContent = t.step2Title;
+            document.getElementById('step-2-desc').textContent = t.step2Desc;
+            document.getElementById('step-3-title').textContent = t.step3Title;
+            document.getElementById('step-3-desc').textContent = t.step3Desc;
+
+            document.getElementById('form-title').textContent = t.formTitle;
+            document.getElementById('form-sub').textContent = t.formSub;
+            document.getElementById('lbl-name').textContent = t.lblName;
+            document.getElementById('client-name').placeholder = t.phName;
+            document.getElementById('lbl-service').textContent = t.lblService;
+            document.getElementById('opt-stickers').textContent = t.optStickers;
+            document.getElementById('opt-branding').textContent = t.optBranding;
+            document.getElementById('opt-packaging').textContent = t.optPackaging;
+            document.getElementById('opt-favors').textContent = t.optFavors;
+            document.getElementById('opt-full').textContent = t.optFull;
+            document.getElementById('lbl-qty').textContent = t.lblQty;
+            document.getElementById('order-qty').placeholder = t.phQty;
+            document.getElementById('lbl-notes').textContent = t.lblNotes;
+            document.getElementById('order-notes').placeholder = t.phNotes;
+            document.getElementById('btn-submit-text').textContent = t.btnSubmit;
+            document.getElementById('social-title').textContent = t.socialTitle;
+            document.getElementById('footer-copy').textContent = t.footerCopy;
+            document.getElementById('modal-cta-text').textContent = t.modalCta;
+
+            // Update About Page Text Nodes
+            document.getElementById('about-float-badge').textContent = t.aboutFloatBadge;
+            document.getElementById('about-verified-tag').textContent = t.aboutVerifiedTag;
+            document.getElementById('about-founder-name').textContent = t.aboutFounderName;
+            document.getElementById('about-founder-role').textContent = t.aboutFounderRole;
+            document.getElementById('about-stat-1').textContent = t.aboutStat1;
+            document.getElementById('about-stat-2').textContent = t.aboutStat2;
+            document.getElementById('about-stat-3').textContent = t.aboutStat3;
+            document.getElementById('about-story-tag').textContent = t.aboutStoryTag;
+            document.getElementById('about-story-title').textContent = t.aboutStoryTitle;
+            document.getElementById('about-story-p1').textContent = t.aboutStoryP1;
+            document.getElementById('about-story-p2').textContent = t.aboutStoryP2;
+            document.getElementById('about-why-sub').textContent = t.aboutWhySub;
+            document.getElementById('about-why-title').textContent = t.aboutWhyTitle;
+            document.getElementById('why-1-title').textContent = t.why1Title;
+            document.getElementById('why-1-desc').textContent = t.why1Desc;
+            document.getElementById('why-2-title').textContent = t.why2Title;
+            document.getElementById('why-2-desc').textContent = t.why2Desc;
+            document.getElementById('why-3-title').textContent = t.why3Title;
+            document.getElementById('why-3-desc').textContent = t.why3Desc;
+            document.getElementById('about-bts-sub').textContent = t.aboutBtsSub;
+            document.getElementById('about-bts-title').textContent = t.aboutBtsTitle;
+            document.getElementById('bts-1-cap').textContent = t.bts1Cap;
+            document.getElementById('bts-2-cap').textContent = t.bts2Cap;
+            document.getElementById('about-cta-title').textContent = t.aboutCtaTitle;
+            document.getElementById('about-cta-desc').textContent = t.aboutCtaDesc;
+            document.getElementById('about-cta-btn1').textContent = t.aboutCtaBtn1;
+            document.getElementById('about-cta-btn2').textContent = t.aboutCtaBtn2;
+
+            // Flip directional chevrons & stats divider
+            const statsGrid = document.getElementById('stats-grid');
+            const aboutStatsGrid = document.getElementById('about-stats-grid');
+            if (currentLang === 'ar') {
+                statsGrid.classList.add('divide-x-reverse');
+                aboutStatsGrid.classList.add('divide-x-reverse');
+                document.querySelectorAll('.rtl-flip').forEach(icon => icon.style.transform = 'scaleX(1)');
+            } else {
+                statsGrid.classList.remove('divide-x-reverse');
+                aboutStatsGrid.classList.remove('divide-x-reverse');
+                document.querySelectorAll('.rtl-flip').forEach(icon => icon.style.transform = 'scaleX(-1)');
+            }
+
+            // Re-render portfolio cards in active language
+            renderPortfolio();
+        }
+
+        // Select Service Card & Scroll Smoothly to Order Form
+        function selectServiceForOrder(serviceKey) {
+            const selectEl = document.getElementById('service-select');
+            selectEl.value = serviceKey;
+            document.getElementById('order-section').scrollIntoView({ behavior: 'smooth' });
+            showToast(currentLang === 'ar' ? 'تم اختيار الخدمة، أكملي تفاصيل طلبك بالأسفل' : 'Service selected! Complete your details below.');
+        }
+
+        // Lightbox Modal Controls
+        function openLightbox(id) {
+            const item = portfolioItems.find(i => i.id === id);
+            if (!item) return;
+            selectedModalItem = item;
+
+            document.getElementById('modal-img').src = item.image;
+            document.getElementById('modal-badge').textContent = currentLang === 'ar' ? item.badgeAr : item.badgeEn;
+            document.getElementById('modal-title').textContent = currentLang === 'ar' ? item.titleAr : item.titleEn;
+            document.getElementById('modal-desc').textContent = currentLang === 'ar' ? item.descAr : item.descEn;
+
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox(event) {
+            if (event && event.target !== event.currentTarget) return;
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function orderFromModal() {
+            if (!selectedModalItem) return;
+            const itemTitle = currentLang === 'ar' ? selectedModalItem.titleAr : selectedModalItem.titleEn;
+            closeLightbox();
+            
+            document.getElementById('service-select').value = selectedModalItem.category;
+            document.getElementById('order-qty').value = '';
+            document.getElementById('order-notes').value = currentLang === 'ar' 
+                ? `أرغب بطلب تصميم مشابه لـ: ${itemTitle}`
+                : `I'd like to order a similar design to: ${itemTitle}`;
+            
+            document.getElementById('order-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle Quick Order Form Submission -> Generates Pre-filled WhatsApp Link for Syrian Number
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('client-name').value.trim();
+            const serviceSelect = document.getElementById('service-select');
+            const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text;
+            const qty = document.getElementById('order-qty').value.trim();
+            const notes = document.getElementById('order-notes').value.trim();
+
+            const message = currentLang === 'ar'
+                ? `مرحباً استوديو رنا كرافت ✨\nالاسم: ${name}\nالخدمة المطلوبة: ${serviceText}\nالكمية: ${qty}\nالتفاصيل: ${notes}`
+                : `Hello Rana Craft Studio ✨\nName: ${name}\nRequested Service: ${serviceText}\nQuantity: ${qty}\nDetails: ${notes}`;
+
+            // Syrian WhatsApp Number in International Format (without leading 00)
+            const phoneNumber = '963980018756';
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+            showToast(currentLang === 'ar' ? 'جاري تحويلك إلى واتساب لإرسال الطلب...' : 'Redirecting to WhatsApp with your order...');
+            
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            }, 600);
+        }
+
+        // Custom Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast-msg');
+            document.getElementById('toast-text').textContent = msg;
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 3000);
+        }
+
+        // Initialize Icons & Initial Render
+        window.addEventListener('DOMContentLoaded', () => {
+            renderPortfolio();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
